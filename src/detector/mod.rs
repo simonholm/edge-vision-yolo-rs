@@ -1,19 +1,16 @@
 use anyhow::Result;
-use opencv::prelude::*;
+use opencv::core::Mat;
 
-pub struct Detector {
-    _model_path: String,
-}
+pub struct Detector;
 
 impl Detector {
-    pub fn new(path: &str) -> Result<Self> {
-        Ok(Self {
-            _model_path: path.to_string(),
-        })
+    pub fn new(_model_path: &str) -> Result<Self> {
+        // ONNX Runtime integration comes later
+        Ok(Self)
     }
 
-    pub fn detect(&self, _frame: &Mat) -> Result<Vec<(i32,i32,i32,i32)>> {
-        // TODO: integrate ONNX runtime / TensorRT
-        Ok(vec![])
+    pub fn detect(&self, _frame: &Mat) -> Result<()> {
+        // YOLO inference wiring comes later
+        Ok(())
     }
 }

@@ -1,19 +1,14 @@
-use opencv::{videoio, prelude::*};
-use anyhow::Result;
+use opencv::prelude::*;
 
-pub struct Camera {
-    cap: videoio::VideoCapture,
-}
+pub struct Camera;
 
 impl Camera {
-    pub fn new(index: i32) -> Result<Self> {
-        let mut cap = videoio::VideoCapture::new(index, videoio::CAP_ANY)?;
-        Ok(Self { cap })
+    pub fn new() -> Self {
+        Self
     }
 
-    pub fn read(&mut self) -> Result<Mat> {
-        let mut frame = Mat::default();
-        self.cap.read(&mut frame)?;
-        Ok(frame)
+    pub fn capture(&self) -> opencv::Result<Mat> {
+        // Stub: return empty frame for now
+        Ok(Mat::default())
     }
 }

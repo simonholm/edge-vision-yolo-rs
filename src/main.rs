@@ -1,21 +1,17 @@
 mod camera;
-mod multiview;
 mod detector;
 mod visualizer;
 
 use anyhow::Result;
+use camera::Camera;
+use detector::Detector;
 
 fn main() -> Result<()> {
-    let mut cam = camera::Camera::new(0)?;
-    let detector = detector::Detector::new("models/yolov8n.onnx")?;
+    let camera = Camera::new();
+    let detector = Detector::new("models/yolov8n.onnx")?;
 
-    loop {
-        let frame = cam.read()?;
-        let views = multiview::split_views(&frame, 3);
+    let frame = camera.capture()?;
+    detector.detect(&frame)?;
 
-        for v in views {
-            let detections = detector.detect(&v)?;
-            visualizer::draw(&v, &detections)?;
-        }
-    }
+    Ok(())
 }
