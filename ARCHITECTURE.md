@@ -1,27 +1,21 @@
 # Architecture – edge-vision-yolo-rs
 
-## Purpose
+## Status
+- Builds cleanly on Termux (Android)
+- OpenCV Rust bindings linked and working
+- ONNX Runtime intentionally stubbed
 
-This repository is a **civilian edge-vision prototype** written in Rust, intended to explore:
+This checkpoint locks in a working toolchain before adding complex native dependencies.
 
-- OpenCV integration on constrained systems (Android / Termux)
-- Incremental integration of ONNX Runtime (YOLO-style models)
-- A clean, modular structure suitable for edge devices
+## Modules
+- main.rs        : orchestration only
+- camera/        : frame acquisition (stubbed)
+- detector/      : object detection API (ONNX stub)
+- visualizer/    : drawing / overlay (stubbed)
+- tracker/       : future temporal tracking
+- multiview/     : future multi-camera logic
 
-This is **not** a military system and does not include autonomous targeting logic.
-
----
-
-## Current State (Checkpoint)
-
-As of this commit:
-
-- The project **builds cleanly on Termux (Android)**.
-- OpenCV Rust bindings are **successfully linked and compiled**.
-- ONNX Runtime (`ort`) integration is **intentionally stubbed**.
-
-This checkpoint exists to lock in a *working toolchain* before reintroducing complex native dependencies.
-
----
-
-## Module Overview
+## Notes
+- Civilian prototype
+- No autonomous targeting
+- ONNX Runtime will be reintroduced later, in isolation
