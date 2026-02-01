@@ -25,14 +25,6 @@ See `ARCHITECTURE.md` for details.
 
 ---
 
-## Non-Goals
-
-- Military or weaponized systems
-- Autonomous targeting
-- Production readiness (yet)
-
----
-
 ## Build
 
 ```bash
