@@ -37,3 +37,22 @@ See `ARCHITECTURE.md` for details.
 
 ```bash
 cargo build
+
+## Bench-first development
+
+This repository now supports a bench-first workflow.
+
+The bench binary allows testing:
+- motion intent generation
+- safety constraints
+- control output formatting
+
+without requiring flight hardware or ONNX Runtime.
+
+### Termux note
+
+Termux is supported for control and bench development.
+ONNX Runtime builds are unreliable on Android/Termux and are not required
+for bench validation.
+
+Full object detection is expected to run on Jetson or Linux hosts.
